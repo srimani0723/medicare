@@ -5,10 +5,10 @@ import { GetPatients } from '../middlewares/fetchData'
 function CareTakerDashboard() {
   const { data: patients } = GetPatients()
   const totalPatients = patients ? patients.length : 0;
-  const averageAdherence = (
-  patients.reduce((acc, patient) => acc + parseInt(patient.adherence.replace("%", "")), 0)
-  / patients.length
-).toFixed(0);
+  const averageAdherence = patients ? (
+    patients.reduce((acc, patient) => acc + parseInt(patient.adherence.replace("%", "")), 0)
+    / patients.length
+  ).toFixed(0) : 0;
 
   const totalMedications = patients ? patients.reduce((acc, patient) => acc + patient.medicationCount, 0) : 0;
   const needAttention = patients ? patients.filter(patient => patient.adherence < 50).length : 0;
