@@ -6,5 +6,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
   if (err) console.log("Error:", err);
   else console.log("SQLite Database started");
 });
+db.run("PRAGMA foreign_keys = ON");
 
 module.exports = db;

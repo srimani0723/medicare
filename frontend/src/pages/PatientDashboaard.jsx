@@ -24,7 +24,7 @@ function PatientDashboaard() {
   const { mutate: deleteMedicationLog } = DeleteMedicationLog();
   const { data: medicationLogListByUserId, refetch: getMedicationLogByUserId } = GetMedicationLogByUserID()
   const { data: adherenceReport, refetch: getAdherenceReport } = GetAdherenceReport()
-  const {data:dailyStreak,refetch:getDailyStreak} = GetDailyStreak()
+  const { data: dailyStreak, refetch:getDailyStreak} = GetDailyStreak()
 
   const todayTaken = medicationLogListByUserId ? medicationLogListByUserId.filter(each => each.datetaken === date) : []
 
